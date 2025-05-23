@@ -27,37 +27,40 @@ The next flip-flop need only “recognize” that the first flip-flop’s Q outp
 However, the remaining flip-flops should be made ready to toggle only when all lower-order output bits are “high,” thus the need for AND gates.
 
 **Procedure**
+1.Initialize the shift register to a known state (e.g., all zeros).
 
-/* write all the steps invloved */
+2.Input a bit serially into the shift register.
+
+3.Shift the contents of the register one position to the right (or left).
+
+4.Output the shifted bit from the last stage of the register.
+
+5.Repeat steps 2-4 for each bit you want to input and shift.
 
 **PROGRAM**
+```
+module exp11(out,clk,rstn);
+ input clk, rstn;
+output reg [3:0] out; 
+always @ (posedge clk) begin  
+    if (! rstn)  
+      out <= 0;  
+    else  
+      out <= out + 1;  
+  end  
+endmodule
 
-![Screenshot 2025-05-05 144747](https://github.com/user-attachments/assets/5620d585-fefe-4700-9e98-a3312bcd5c71)
-
-
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. 
-
-
-
-Developed by: NAME: ARUNKUMAR S A
-RegisterNumber:212223220009
-
-
-*/
-
+```
 **RTL LOGIC UP COUNTER**
+![image](https://github.com/user-attachments/assets/8951d10f-c2ce-4535-8739-9bd6716ed954)
 
-![Screenshot 2025-05-05 143959](https://github.com/user-attachments/assets/1483ec5a-71a5-4b26-b62b-61c3ac11b202)
 
 **TIMING DIAGRAM FOR IP COUNTER**
+![image](https://github.com/user-attachments/assets/a1990a2f-1e5f-4c88-99e6-9a19d0a90625)
 
-![Screenshot 2025-05-05 144642](https://github.com/user-attachments/assets/7fab73d9-dad1-4ac4-b18a-071bf8925734)
 
 **TRUTH TABLE**
-
-![326162211-b75ef146-b4c8-4718-87fa-c3d60f2c4dce](https://github.com/04Varsha/SYNCHRONOUS-UP-COUNTER/assets/149035374/a8caffaa-dc40-44b8-82dd-a12604a04eaa)
-
+![image](https://github.com/user-attachments/assets/4409da28-2aad-4a52-ae5c-c2d7c6d18632)
 
 **RESULTS**
-
-Thus the 4 bit counter is implemented successfully.
+Hence a 4 bit synchronous up counter is implemented correctly and program code is successfully executed.
